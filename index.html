@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tshepo Motshoni — Professional Cleaning Services</title>
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1c1c1c;
+  --ink: #f5f5f5;
+  --muted: #8a8a8a;
+  --accent: #22c55e;
+  --accent-dim: rgba(34, 197, 94, 0.15);
+  --border: #2a2a2a;
+  --radius: 12px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+nav .logo img {
+  height: 36px;
+  width: auto;
+  border-radius: 6px;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav ul a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+nav ul a:hover { color: var(--ink); }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-logo {
+  width: 400px;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 8px 40px rgba(255, 0, 0, 0.25)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--accent);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--surface-2);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
+  border-color: var(--muted);
+}
+
+/* Sections */
+section {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 600px;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.service-card:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-dim);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.service-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* Work Gallery */
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.work-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+
+.work-card:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.work-card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.work-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-card .work-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Video Frames */
+.video-frames-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.video-group-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.video-frames-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.frame-card {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  aspect-ratio: 4/3;
+}
+
+.frame-card:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.frame-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .video-frames-row {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+.flyer-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .work-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+  }
+  .work-card.large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+/* Flyer Showcase */
+.flyer-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.flyer-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.flyer-card:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.flyer-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 500px;
+  background: #000;
+}
+
+.flyer-card .flyer-info {
+  padding: 1.5rem;
+}
+
+.flyer-card .flyer-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.flyer-card .flyer-info p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.testimonial-card .stars {
+  color: #facc15;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.testimonial-card .author {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.testimonial-card .role {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Contact */
+#contact {
+  text-align: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-dim);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.contact-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.3s;
+}
+
+.contact-card:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  transform: translateY(-2px);
+}
+
+.contact-card .icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.contact-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Brand Divider */
+.brand-divider {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.brand-logo-small {
+  height: 40px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.brand-divider .brand-text-img {
+  height: 50px;
+  width: auto;
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer .footer-logo {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+footer span {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  .hero { padding-top: 5rem; }
+  section { padding: 4rem 1.5rem; }
+  .hero-cta { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero > * {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero > *:nth-child(1) { animation-delay: 0.1s; }
+.hero > *:nth-child(2) { animation-delay: 0.2s; }
+.hero > *:nth-child(3) { animation-delay: 0.3s; }
+.hero > *:nth-child(4) { animation-delay: 0.4s; }
+.hero > *:nth-child(5) { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">
+    <img src="portfolio_assets/logo_3d_nav.png" alt="MS 3D Logo">
+  </div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <img src="portfolio_assets/logo_3d_merged_pro.png" alt="MS 3D Logo" class="hero-logo">
+  <div class="hero-badge">Professional Cleaning Services</div>
+  <h1>Your Space, <span>Spotless</span> Clean</h1>
+  <p>Professional carpet, mattress, and deep cleaning services. Satisfaction guaranteed — every single time.</p>
+  <div class="hero-cta">
+    <a href="https://wa.me/27745086001" class="btn btn-primary">WhatsApp Us</a>
+    <a href="mailto:Tshepotcs@gmail.com" class="btn btn-secondary">Send Email</a>
+  </div>
+</section>
+
+<!-- Brand Divider -->
+<section class="brand-divider">
+  <div class="brand-logos">
+    <img src="portfolio_assets/logo_3d_merged_pro.png" alt="MS 3D Logo" class="brand-logo-small">
+    <img src="portfolio_assets/logo_text.png" alt="Magaetswale" class="brand-text-img">
+    <img src="portfolio_assets/logo_ms3.jpg" alt="MS Logo Alt" class="brand-logo-small">
+    <img src="portfolio_assets/flyer_whatsapp.jpg" alt="MS Logo" class="brand-logo-small">
+    <img src="portfolio_assets/flyer_couch.jpg" alt="MS Logo" class="brand-logo-small">
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-desc">Professional cleaning solutions for homes and businesses. We use industry-grade equipment and eco-friendly products.</p>
+  
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Carpet Deep Cleaning</h3>
+      <p>Deep steam cleaning that removes stains, allergens, and embedded dirt. Your carpets will look and feel brand new.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛏️</div>
+      <h3>Mattress Cleaning</h3>
+      <p>Sanitization and deep cleaning to eliminate dust mites, bacteria, and odors. Sleep healthier tonight.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪣</div>
+      <h3>Deep Clean</h3>
+      <p>Full property deep cleaning — kitchens, bathrooms, floors, and every surface that needs attention.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪑</div>
+      <h3>Upholstery Cleaning</h3>
+      <p>Sofas, chairs, and fabric furniture cleaned and refreshed. We handle all fabric types with care.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚗</div>
+      <h3>Car Interior Detailing</h3>
+      <p>Complete interior vacuum, shampoo, and detailing. Drive in a fresh, clean car again.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>Commercial Cleaning</h3>
+      <p>Offices, retail spaces, and industrial cleaning. Flexible schedules to suit your business hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section>
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">Trusted by Hundreds</h2>
+  <p class="section-desc">We take pride in every job. Here's what our clients experience.</p>
+  
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Jobs Completed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Satisfaction Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">5★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">24h</div>
+      <div class="stat-label">Response Time</div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+  <div class="section-label">Our Work</div>
+  <h2 class="section-title">Real Work, Real Results</h2>
+  <p class="section-desc">See the actual cleaning work — from carpet deep cleaning to upholstery and furniture care.</p>
+  
+  <div class="work-gallery">
+    <div class="work-card large">
+      <img src="portfolio_shots/carpet_cleaning_action.jpg" alt="Carpet Cleaning in Action" loading="lazy">
+      <div class="work-overlay"><span>Carpet Deep Cleaning</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/carpet_cleaning_closeup.jpg" alt="Carpet Close-up" loading="lazy">
+      <div class="work-overlay"><span>Stain Removal</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/carpet_cleaning_wide.jpg" alt="Wide Carpet Shot" loading="lazy">
+      <div class="work-overlay"><span>Full Room Clean</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/upholstery_cleaning1.jpg" alt="Upholstery Cleaning" loading="lazy">
+      <div class="work-overlay"><span>Upholstery Care</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/upholstery_cleaning2.jpg" alt="Upholstery Cleaning 2" loading="lazy">
+      <div class="work-overlay"><span>Fabric Revival</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/cleaning_professional.jpg" alt="Professional Cleaning" loading="lazy">
+      <div class="work-overlay"><span>Professional Service</span></div>
+    </div>
+    <div class="work-card large">
+      <img src="portfolio_shots/sofa_before_cleaning.jpg" alt="Sofa Cleaning" loading="lazy">
+      <div class="work-overlay"><span>Sofa Deep Clean</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/furniture_cleaning.jpg" alt="Furniture Cleaning" loading="lazy">
+      <div class="work-overlay"><span>Furniture Care</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/deep_cleaning_work.jpg" alt="Deep Cleaning Work" loading="lazy">
+      <div class="work-overlay"><span>Deep Clean</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/cleaning_in_progress.jpg" alt="Cleaning in Progress" loading="lazy">
+      <div class="work-overlay"><span>In Progress</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/chair_cleaning.jpg" alt="Chair Cleaning" loading="lazy">
+      <div class="work-overlay"><span>Chair Restoration</span></div>
+    </div>
+    <div class="work-card">
+      <img src="portfolio_shots/outdoor_cleaning.jpg" alt="Outdoor Cleaning" loading="lazy">
+      <div class="work-overlay"><span>Outdoor Clean</span></div>
+    </div>
+  </div>
+
+  <h3 class="flyer-heading">Video Frames — On The Job</h3>
+  <div class="video-frames-grid">
+    <div class="video-group">
+      <h4 class="video-group-title">Ottoman & Sofa Deep Clean</h4>
+      <div class="video-frames-row">
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_001.jpg" alt="Video 2 Frame 1" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_002.jpg" alt="Video 2 Frame 2" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_003.jpg" alt="Video 2 Frame 3" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_004.jpg" alt="Video 2 Frame 4" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_005.jpg" alt="Video 2 Frame 5" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_006.jpg" alt="Video 2 Frame 6" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_007.jpg" alt="Video 2 Frame 7" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_008.jpg" alt="Video 2 Frame 8" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_009.jpg" alt="Video 2 Frame 9" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_010.jpg" alt="Video 2 Frame 10" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_011.jpg" alt="Video 2 Frame 11" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_012.jpg" alt="Video 2 Frame 12" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_013.jpg" alt="Video 2 Frame 13" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video2/video2_frame_014.jpg" alt="Video 2 Frame 14" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="video-group">
+      <h4 class="video-group-title">On-Site Cleaning Work</h4>
+      <div class="video-frames-row">
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_001.jpg" alt="Video 3 Frame 1" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_002.jpg" alt="Video 3 Frame 2" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_003.jpg" alt="Video 3 Frame 3" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_004.jpg" alt="Video 3 Frame 4" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_005.jpg" alt="Video 3 Frame 5" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_006.jpg" alt="Video 3 Frame 6" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_007.jpg" alt="Video 3 Frame 7" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_008.jpg" alt="Video 3 Frame 8" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_009.jpg" alt="Video 3 Frame 9" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_010.jpg" alt="Video 3 Frame 10" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_011.jpg" alt="Video 3 Frame 11" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_012.jpg" alt="Video 3 Frame 12" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_013.jpg" alt="Video 3 Frame 13" loading="lazy"></div>
+        <div class="frame-card"><img src="portfolio_frames/video3/video3_frame_014.jpg" alt="Video 3 Frame 14" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="flyer-heading">Marketing Materials</h3>
+  <div class="flyer-showcase">
+    <div class="flyer-card">
+      <img src="portfolio_assets/flyer1.jpg" alt="Marketing Flyer 1" loading="lazy">
+      <div class="flyer-info">
+        <h4>Carpet Cleaning Flyer</h4>
+        <p>Promotional flyer with winter special offer, pricing table, and service highlights.</p>
+      </div>
+    </div>
+    <div class="flyer-card">
+      <img src="portfolio_assets/flyer_couch.jpg" alt="Couch Deep Cleaning Flyer" loading="lazy">
+      <div class="flyer-info">
+        <h4>Couch Deep Cleaning Flyer</h4>
+        <p>Before & after showcase with pricing for all couch sizes, steam cleaning technology.</p>
+      </div>
+    </div>
+    <div class="flyer-card">
+      <img src="portfolio_assets/flyer2.jpg" alt="Marketing Flyer 2" loading="lazy">
+      <div class="flyer-info">
+        <h4>Marketing Flyer — Alt</h4>
+        <p>Alternate promotional design for MS Magaetswale Solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="section-label">Client Reviews</div>
+  <h2 class="section-title">What People Say</h2>
+  <p class="section-desc">Don't take our word for it — hear from our clients.</p>
+  
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely amazing work! My carpets look brand new. Professional, punctual, and affordable. Highly recommend!"</p>
+      <div class="author">Sarah M.</div>
+      <div class="role">Homeowner</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Best mattress cleaning service I've ever used. The difference was night and day. Will definitely call again."</p>
+      <div class="author">James K.</div>
+      <div class="role">Tenant</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"They transformed my office space. The team was efficient and thorough. Our workspace has never been cleaner."</p>
+      <div class="author">Linda T.</div>
+      <div class="role">Business Owner</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's Clean Your Space</h2>
+  <p class="section-desc">Ready for a spotless clean? Reach out today for a free quote.</p>
+  
+  <div class="contact-grid">
+    <a href="https://wa.me/27745086001" class="contact-card">
+      <div class="icon contact-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <h4>WhatsApp</h4>
+      <p>060 300 9963</p>
+    </a>
+    <a href="mailto:Tshepotcs@gmail.com" class="contact-card">
+      <div class="icon contact-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="3" fill="#EA4335"/>
+          <path d="M2 7l10 7 10-7" stroke="white" stroke-width="1.5" fill="none"/>
+          <path d="M2 19l7-7M22 19l-7-7" stroke="#FBBC05" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <h4>Email</h4>
+      <p>Tshepotcs@gmail.com</p>
+    </a>
+    <a href="https://tiktok.com/@tshepomontshoni" class="contact-card">
+      <div class="icon contact-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.82.11V9.4a6.33 6.33 0 00-.82-.05A6.34 6.34 0 003.15 15.7a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.01a8.16 8.16 0 004.76 1.5V7.07a4.85 4.85 0 01-1-.38z"/></svg>
+      </div>
+      <h4>TikTok</h4>
+      <p>@tshepomontshoni</p>
+    </a>
+    <a href="https://facebook.com/tshepomontshoni" class="contact-card">
+      <div class="icon contact-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </div>
+      <h4>Facebook</h4>
+      <p>tshepomontshoni</p>
+    </a>
+    <a href="https://instagram.com/tshepomontshoni" class="contact-card">
+      <div class="icon contact-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="url(#ig-grad)"><defs><radialGradient id="ig-grad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </div>
+      <h4>Instagram</h4>
+      <p>@tshepomontshoni</p>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <img src="portfolio_assets/logo_3d_merged_pro.png" alt="MS 3D Logo" class="footer-logo">
+  <p>&copy; 2026 <span>Tshepo Motshoni</span> — Professional Cleaning Services. All rights reserved.</p>
+</footer>
+
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Intersection observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .testimonial-card, .contact-card, .work-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'all 0.5s ease-out';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>

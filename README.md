@@ -1,13 +1,23 @@
 # Magaetswale Cleaning Services
 
-Professional cleaning portfolio for MS Magaetswale Solutions.
+**Professional Cleaning Services - Durban, South Africa**
 
-## Live URL
+**GPS Location**: -26.2480793, 27.9592505
+
+---
+
+## Designer
+**we designer**
+
+## Services
+- Carpet Deep Cleaning
+- Mattress Cleaning
+- Upholstery & Furniture Care
+- Car Interior Detailing
+- Commercial Cleaning
+
+## Live Portfolio
 https://thabs1234.github.io/magaetswale-cleaning/
 
-## Features
-- Dark mode responsive design
-- 970 lines of HTML/CSS
-- Video frames gallery (35 total)
-- Work photos showcase
-- Marketing materials display
+## Repository
+https://github.com/thabs1234/magaetswale-cleaning

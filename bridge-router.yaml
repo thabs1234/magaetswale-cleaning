@@ -1,0 +1,23 @@
+# Hub configuration for ChatGPT Desktop
+# Bridge configuration connecting to 9router proxy
+
+version: "1.0"
+
+# Model routing rules
+routes:
+  - model: myCombo
+    provider: openai
+    endpoint: http://localhost:20128/v1
+    fallback: true
+  - model: gc/gemini
+    provider: gemini
+    endpoint: http://localhost:20128/v1
+  - model: oc/qwen
+    provider: openai
+    endpoint: http://localhost:20128/v1
+
+# Auto-selection rules
+autoSelect:
+  coding: myCombo
+  general: gc/gemini-3.1-flash-lite-preview
+  creative: oc/qwen-xl

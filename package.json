@@ -1,0 +1,24 @@
+{
+  "name": "chatgpt-bridge-config",
+  "version": "1.0.0",
+  "description": "Best configuration to bridge ChatGPT Desktop with 9router/Hermes proxy for free AI models",
+  "author": "Thabang (SiteCraft SA)",
+  "license": "MIT",
+  "main": "hub.json",
+  "files": [
+    "hub.json",
+    "bridge-router.yaml",
+    "test_bridge.py",
+    "healing_bridge.py"
+  ],
+  "keywords": [
+    "chatgpt",
+    "bridge",
+    "9router",
+    "hermes",
+    "proxy",
+    "openai",
+    "free-models",
+    "ai-proxy"
+  ]
+}

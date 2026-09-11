@@ -1,0 +1,17 @@
+{
+  "provider": "openai_compatible",
+  "baseUrl": "http://localhost:20128/v1",
+  "apiKey": "sk-66744af0d443ba1c-92ki5m-20dbc012",
+  "defaultModel": "myCombo",
+  "modelMapping": {
+    "gpt-4": "myCombo",
+    "gpt-3.5-turbo": "gc/gemini-3.1-flash-lite-preview",
+    "auto": "myCombo"
+  },
+  "bridgeEnabled": true,
+  "connection": {
+    "type": "hermes_bridge",
+    "proxy": "http://localhost:20128",
+    "token": "sk-66744af0d443ba1c-92ki5m-20dbc012"
+  }
+}

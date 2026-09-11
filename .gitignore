@@ -1,0 +1,24 @@
+# Local /
+*.local
+.cache/
+.hermes/
+.ollama/
+node_modules/
+venv/
+
+# IDE
+.vscode/
+.claude/
+.pydev_vscode/
+
+# User specific
+/NTUSER.DAT*
+/Saved Games/
+/Documents/
+/AppData/
+/Projects/
+/Downloads/
+
+# System
+/Temp/
+/Temp/

@@ -211,15 +211,6 @@ section::before {
   transition: transform 0.6s;
 }
 .gallery-item:hover img {transform: scale(1.08);}
-.gallery-item .label {
-  position: absolute; top: 20px; left: 20px;
-  background: var(--red); color: white; padding: 10px 24px;
-  border-radius: 24px; font-size: 14px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(220,38,38,0.4);
-  transition: all 0.3s;
-}
-.gallery-item .label.after {background: #16A34A; box-shadow: 0 4px 15px rgba(22,163,74,0.4);}
 
 /* PROCESS */
 .process {background: var(--card); border-radius: 24px; margin: -60px 0 0 -60px;}
@@ -487,7 +478,44 @@ footer .portfolio-link:hover {
   .wd-card {padding: 32px 20px;}
   .wd-avatar {width: 80px; height: 80px; font-size: 34px;}
 }
-</style>
+
+/* ===================== GALLERY LIGHTBOX ===================== */
+#gallery-lightbox {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 20px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+  cursor: zoom-out;
+}
+#gallery-lightbox.open {
+  opacity: 1; pointer-events: auto;
+}
+#lightbox-img {
+  max-width: 92vw; max-height: 82vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  cursor: zoom-out;
+  transition: transform 0.3s ease;
+}
+#lightbox-img.zoomed {transform: scale(1.4);}
+#lightbox-close {
+  position: absolute; top: 24px; right: 24px;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white; font-size: 32px; line-height: 1;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+#lightbox-close:hover {background: rgba(255,255,255,0.16);}
+.lightbox-caption {
+  color: rgba(255,255,255,0.7);
+  font-size: 15px; letter-spacing: 0.3px;
+  text-align: center; max-width: 600px;
+}
 </head>
 <body>
 
@@ -521,17 +549,14 @@ footer .portfolio-link:hover {
     <p>See the difference our deep cleaning makes</p>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-item fade-in stagger-3">
+    <div class="gallery-item fade-in stagger-3" data-full="WhatsApp_Image_2026-09-14_at_16.13.57_6698b9.jpg">
       <img src="WhatsApp_Image_2026-09-14_at_16.13.57_6698b9.jpg" alt="Couch deep cleaning flyer">
-      <div class="label">Couch</div>
     </div>
-    <div class="gallery-item fade-in stagger-4">
+    <div class="gallery-item fade-in stagger-4" data-full="WhatsApp_Image_2026-09-09_at_11.39.26_5f26e3.jpg">
       <img src="WhatsApp_Image_2026-09-09_at_11.39.26_5f26e3.jpg" alt="Carpet cleaning pricing flyer">
-      <div class="label after">Carpet</div>
     </div>
-    <div class="gallery-item fade-in stagger-5">
+    <div class="gallery-item fade-in stagger-5" data-full="WhatsApp_Image_2026-09-10_at_08.25.28_26bb9c.jpg">
       <img src="WhatsApp_Image_2026-09-10_at_08.25.28_26bb9c.jpg" alt="Professional cleaning workspace">
-      <div class="label after">Interior</div>
     </div>
   </div>
 </section>
@@ -771,6 +796,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ===================== GALLERY LIGHTBOX (pop-up on flyers) =====================
+(function() {
+  const overlay = document.createElement('div');
+  overlay.id = 'gallery-lightbox';
+  overlay.innerHTML = `
+    <button id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="Flyer full size">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  `;
+  document.body.appendChild(overlay);
+
+  const img = overlay.querySelector('#lightbox-img');
+  const caption = overlay.querySelector('#lightbox-caption');
+
+  document.querySelectorAll('.gallery-item[data-full]').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-full') || item.querySelector('img').getAttribute('src') || '';
+      img.src = src;
+      caption.textContent = item.querySelector('img').getAttribute('alt') || '';
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      img.onclick = () => close();
+    });
+  });
+
+  function close() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    img.src = '';
+    img.onclick = null;
+  }
+
+  overlay.querySelector('#lightbox-close').addEventListener('click', close);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+})();
 </script>
 </body>
 </html>

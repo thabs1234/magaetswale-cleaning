@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Thabang Lehau — CV</title>
+<style>
+  :root { --accent: #00bcd4; --ink: #1a1a1f; --muted: #5a5a63; --line: #e4e4e8; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    color: var(--ink); background: #fff; font-size: 13px; line-height: 1.55;
+    padding: 0;
+  }
+  .page { width: 210mm; min-height: 297mm; padding: 16mm 16mm 14mm; margin: 0 auto; }
+  header { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 3px solid var(--accent); padding-bottom: 12px; }
+  .name { font-size: 30px; font-weight: 800; letter-spacing: .5px; }
+  .name .dot { color: var(--accent); }
+  .role { color: var(--muted); font-size: 14px; margin-top: 2px; font-weight: 600; }
+  .contact { text-align: right; font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+  .contact a { color: var(--ink); text-decoration: none; }
+  .contact b { color: var(--accent); }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent);
+       margin: 18px 0 8px; border-bottom: 1px solid var(--line); padding-bottom: 3px; }
+  p { margin-bottom: 6px; }
+  .summary { color: #2c2c33; }
+  .ventures { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .venture { display: grid; grid-template-columns: 38mm 1fr; gap: 10px; }
+  .venture .vname { font-weight: 700; color: var(--ink); }
+  .venture .vrole { font-size: 11px; color: var(--accent); font-weight: 600; margin-top: 1px; }
+  .venture ul { margin: 2px 0 0 16px; }
+  .venture li { margin-bottom: 2px; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+  .skills li { list-style: none; padding: 2px 0; border-bottom: 1px dotted var(--line); }
+  .skills li::before { content: "▸ "; color: var(--accent); }
+  .services { columns: 2; column-gap: 24px; }
+  .services li { list-style: none; margin-bottom: 5px; break-inside: avoid; }
+  .services li b { color: var(--ink); }
+  .services li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 8px;
+           font-size: 10.5px; color: var(--muted); text-align: center; }
+  @media print { body { padding: 0; } .page { margin: 0; width: auto; } }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <div class="name">Thabang Lehau</div>
+        <div class="role">Web Designer &amp; Founder — SiteCraft SA · Come &amp; Buy Enterprise</div>
+      </div>
+      <div class="contact">
+        <div><b>Email</b> &nbsp;lehauthabang@gmail.com</div>
+        <div><b>WhatsApp</b> &nbsp;+27 74 508 6001</div>
+        <div><b>Location</b> &nbsp;South Africa</div>
+        <div><b>GitHub</b> &nbsp;github.com/thabs1234</div>
+        <div><b>LinkedIn</b> &nbsp;linkedin.com/in/thabang-lehau</div>
+      </div>
+    </header>
+
+    <h2>Profile</h2>
+    <p class="summary">Web designer and founder helping South African local businesses get online with clean, fast, done-for-you websites — no jargon, no big budgets. I run two complementary ventures: <b>SiteCraft SA</b> (affordable websites for local businesses) and <b>Come &amp; Buy Enterprise</b> (everyday-goods retail). I combine hands-on web development with practical local-business outreach and WhatsApp marketing.</p>
+
+    <h2>Ventures</h2>
+    <div class="ventures">
+      <div class="venture">
+        <div>
+          <div class="vname">SiteCraft SA</div>
+          <div class="vrole">Founder · Web Design</div>
+        </div>
+        <div>
+          <ul>
+            <li>Done-for-you website service for South African local businesses — R1,500 setup + R450/month hosting &amp; support.</li>
+            <li>Builds fast, responsive sites so small businesses get found and convert customers online.</li>
+            <li>Prospects leads with an automated OpenStreetMap/Overpass flow (Local Lead Finder) to pitch free sample sites.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="venture">
+        <div>
+          <div class="vname">Come &amp; Buy Enterprise</div>
+          <div class="vrole">Founder · Retail</div>
+        </div>
+        <div>
+          <ul>
+            <li>Retail operation supplying everyday goods to local South African customers, managed end-to-end.</li>
+            <li>Built to be low-overhead and repeatable, complementing the digital side of the business.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="venture">
+        <div>
+          <div class="vname">Local Lead Finder</div>
+          <div class="vrole">Tooling · Automation</div>
+        </div>
+        <div>
+          <ul>
+            <li>Automated prospecting flow using OpenStreetMap / Overpass that finds SA businesses without a website.</li>
+            <li>Turns manual lead-hunting into a repeatable pipeline feeding SiteCraft SA clients.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>HTML &amp; CSS</li>
+      <li>JavaScript</li>
+      <li>Responsive Web Design</li>
+      <li>Local Business Outreach</li>
+      <li>WhatsApp Marketing</li>
+      <li>Small-Business Strategy</li>
+      <li>Lead Generation</li>
+      <li>Client Communication</li>
+    </ul>
+
+    <h2>Services</h2>
+    <ul class="services">
+      <li><b>Website builds</b> — clean, mobile-ready sites for local businesses.</li>
+      <li><b>Hosting &amp; support</b> — monthly maintenance packages.</li>
+      <li><b>Free sample site</b> — pitch with a done demo, then convert.</li>
+      <li><b>WhatsApp follow-up</b> — turn enquiries into clients.</li>
+      <li><b>Local SEO basics</b> — get found by nearby customers.</li>
+      <li><b>Landing pages</b> — for promotions and campaigns.</li>
+    </ul>
+
+    <footer>
+      Thabang Lehau · lehauthabang@gmail.com · +27 74 508 6001 · Portfolio: thabs1234.github.io/portfolio
+    </footer>
+  </div>
+</body>
+</html>

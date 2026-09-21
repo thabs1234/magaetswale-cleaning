@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Tshepo M.",
+    "service": "Couch Deep Cleaning",
+    "quote": "They came to my place in Soweto and cleaned the couch thoroughly. Left it looking brand new. Will recommend to everyone.",
+    "stars": 5,
+    "date": "2026-08",
+    "image": "client1.jpg"
+  },
+  {
+    "name": "Nomsa D.",
+    "service": "Carpet Cleaning",
+    "quote": "The fitted carpet in my living room had stains that would not come out. Magaetswale sorted it in one visit. Affordable too.",
+    "stars": 5,
+    "date": "2026-07",
+    "image": "client2.jpg"
+  },
+  {
+    "name": "Kagiso P.",
+    "service": "Office Carpet Cleaning",
+    "quote": "We hired them for our small office in Diepkloof. Professional, on time, and the price per square metre was fair. Will use again.",
+    "stars": 4,
+    "date": "2026-06",
+    "image": ""
+  }
+]
